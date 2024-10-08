@@ -6,6 +6,7 @@ const cors = require('cors');
 
 const dbPath = path.join(__dirname, 'data.db');
 const app = express();
+const port = process.env.PORT || 3005;
 
 app.use(express.json());
 app.use(cors());
@@ -15,8 +16,8 @@ let dataBase = null;
 const initializeDBAndServer = async () => {
   try {
     dataBase = await open({filename: dbPath, driver: sqlite3.Database});
-    app.listen(3005, () => {
-      console.log('Server Running at http://localhost:3005/')
+    app.listen(port, () => {
+      console.log(`Server Running at ${port}`)
     });
   } catch (e) {
     console.log(`DB Error: ${e.message}`);
