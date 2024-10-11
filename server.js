@@ -6,7 +6,7 @@ const cors = require('cors');
 
 const dbPath = path.join(__dirname, 'data.db');
 const app = express();
-const port = process.env.PORT || 3005;
+const port = process.env.PORT || 10000;
 
 app.use(express.json());
 app.use(cors());
